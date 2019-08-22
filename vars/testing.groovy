@@ -20,8 +20,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh "scp target/${NAME}-${VERSION}.jar root@${hostname}:/opt/ "
-                sh "ssh root@${hostname} "java -jar /opt/${NAME}-${VERSION}.jar" "
+                sh 'scp target/${NAME}-${VERSION}.jar root@"${hostname}":/opt/'
+                sh 'ssh root@${hostname} java -jar /opt/${NAME}-${VERSION}.jar '
             }
         }
     }
